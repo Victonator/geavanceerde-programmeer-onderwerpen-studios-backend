@@ -59,7 +59,7 @@ spec:
     spec:                     # Spec for the containers that will be run in the Pods
       containers:
       - name: studio-service-server
-        image: r0784055/geavanceerde-programmeer-onderwerpen-characters-backend
+        image: r0784055/geavanceerde-programmeer-onderwerpen-studios-backend
         imagePullPolicy: Always
         ports:
           - name: http
