@@ -23,6 +23,11 @@ public class AnimeStudio {
         setSeriesAmount(seriesAmount);
     }
 
+    public AnimeStudio(AnimeStudioDTO animeStudioDTO) {
+        setName(animeStudioDTO.getName());
+        setSeriesAmount(animeStudioDTO.getAmount());
+    }
+
     public int getId() {
         return id;
     }
