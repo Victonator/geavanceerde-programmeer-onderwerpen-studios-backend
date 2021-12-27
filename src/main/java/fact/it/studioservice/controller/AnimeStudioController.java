@@ -1,6 +1,7 @@
 package fact.it.studioservice.controller;
 
 import fact.it.studioservice.model.AnimeStudio;
+import fact.it.studioservice.model.AnimeStudioDTO;
 import fact.it.studioservice.repository.AnimeStudioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,13 +44,15 @@ public class AnimeStudioController {
     }
 
     @PostMapping("/studios")
-    public AnimeStudio addStudio(@RequestBody AnimeStudio studio) {
-        animeStudioRepository.save(studio);
-        return studio;
+    public AnimeStudio addStudio(@RequestBody AnimeStudioDTO animeStudioDTO) {
+        AnimeStudio animeStudio = new AnimeStudio(animeStudioDTO);
+        animeStudioRepository.save(animeStudio);
+        return animeStudio;
     }
 
     @PutMapping("/studios")
-    public AnimeStudio updateStudio(@RequestBody AnimeStudio updatedStudio) {
+    public AnimeStudio updateStudio(@RequestBody AnimeStudioDTO animeStudioDTO) {
+        AnimeStudio updatedStudio = new AnimeStudio(animeStudioDTO);
         AnimeStudio studio = animeStudioRepository.findAnimeStudioById(updatedStudio.getId());
         studio.setName(updatedStudio.getName());
         studio.setSeriesAmount(updatedStudio.getSeriesAmount());
