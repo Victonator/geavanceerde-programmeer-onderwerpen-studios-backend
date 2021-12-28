@@ -50,7 +50,7 @@ public class StudioControllerIntegrationTests {
     }
 
     @Test
-    public void givenStudios_whenGetStudiosByName_thenReturnJsonStudios() throws Exception {
+    void givenStudios_whenGetStudiosByName_thenReturnJsonStudios() throws Exception {
         mockMvc.perform(get("/studios/{name}","Studio"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -62,7 +62,7 @@ public class StudioControllerIntegrationTests {
     }
 
     @Test
-    public void givenStudios_whenGetStudiosBySeriesAmount_thenReturnJsonStudios() throws Exception {
+    void givenStudios_whenGetStudiosBySeriesAmount_thenReturnJsonStudios() throws Exception {
         mockMvc.perform(get("/studios/seriesProduced/{amount}","20"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(1)))
@@ -71,7 +71,7 @@ public class StudioControllerIntegrationTests {
     }
 
     @Test
-    public void givenStudios_whenGetStudios_thenReturnJsonStudios() throws Exception {
+    void givenStudios_whenGetStudios_thenReturnJsonStudios() throws Exception {
         mockMvc.perform(get("/studios"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -83,7 +83,7 @@ public class StudioControllerIntegrationTests {
     }
 
     @Test
-    public void givenStudio_whenAddStudio_thenReturnJsonStudio() throws Exception {
+    void givenStudio_whenAddStudio_thenReturnJsonStudio() throws Exception {
         mockMvc.perform(post("/studios")
                         .content(mapper.writeValueAsString(animeStudio3))
                         .contentType(MediaType.APPLICATION_JSON))
@@ -94,7 +94,7 @@ public class StudioControllerIntegrationTests {
     }
 
 //    @Test
-//    public void givenStudio_whenUpdateStudio_thenReturnJsonStudio() throws Exception {
+//    void givenStudio_whenUpdateStudio_thenReturnJsonStudio() throws Exception {
 //        AnimeStudio changedAnimeStudio3 = animeStudio3;
 //        changedAnimeStudio3.setSeriesAmount(5);
 //
@@ -108,13 +108,13 @@ public class StudioControllerIntegrationTests {
 //    }
 //
 //    @Test
-//    public void givenStudio_whenDeleteStudio_thenStatusOk() throws Exception {
+//    void givenStudio_whenDeleteStudio_thenStatusOk() throws Exception {
 //        mockMvc.perform(delete("/studios/{Id}",3))
 //                .andExpect(status().isOk());
 //    }
 //
 //    @Test
-//    public void givenNoStudio_whenDeleteStudio_thenStatusNotFound() throws Exception {
+//    void givenNoStudio_whenDeleteStudio_thenStatusNotFound() throws Exception {
 //        mockMvc.perform(delete("/studios/{Id}",3))
 //                .andExpect(status().isNotFound());
 //    }
