@@ -25,15 +25,11 @@ public class AnimeStudio {
 
     public AnimeStudio(AnimeStudioDTO animeStudioDTO) {
         setName(animeStudioDTO.getName());
-        setSeriesAmount(animeStudioDTO.getAmount());
+        setSeriesAmount(animeStudioDTO.getSeriesAmount());
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

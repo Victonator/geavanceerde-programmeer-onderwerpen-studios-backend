@@ -2,7 +2,7 @@ package fact.it.studioservice.model;
 
 public class AnimeStudioDTO {
     private String name;
-    private int amount;
+    private int seriesAmount;
 
     public String getName() {
         return name;
@@ -12,11 +12,11 @@ public class AnimeStudioDTO {
         this.name = name;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getSeriesAmount() {
+        return seriesAmount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setSeriesAmount(int amount) {
+        this.seriesAmount = amount;
     }
 }
