@@ -93,29 +93,29 @@ public class StudioControllerIntegrationTests {
                 .andExpect(jsonPath("$.seriesAmount",is(2)));
     }
 
-//    @Test
-//    void givenStudio_whenUpdateStudio_thenReturnJsonStudio() throws Exception {
-//        AnimeStudio changedAnimeStudio3 = animeStudio3;
-//        changedAnimeStudio3.setSeriesAmount(5);
-//
-//        mockMvc.perform(put("/studios")
-//                .content(mapper.writeValueAsString(changedAnimeStudio3))
-//                .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.name",is("Studio3")))
-//                .andExpect(jsonPath("$.seriesAmount",is(5)));
-//    }
-//
-//    @Test
-//    void givenStudio_whenDeleteStudio_thenStatusOk() throws Exception {
-//        mockMvc.perform(delete("/studios/{Id}",3))
-//                .andExpect(status().isOk());
-//    }
-//
-//    @Test
-//    void givenNoStudio_whenDeleteStudio_thenStatusNotFound() throws Exception {
-//        mockMvc.perform(delete("/studios/{Id}",3))
-//                .andExpect(status().isNotFound());
-//    }
+    @Test
+    void givenStudio_whenUpdateStudio_thenReturnJsonStudio() throws Exception {
+        AnimeStudio changedAnimeStudio3 = animeStudio3;
+        changedAnimeStudio3.setId(animeStudio1.getId());
+
+        mockMvc.perform(put("/studios")
+                .content(mapper.writeValueAsString(changedAnimeStudio3))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name",is("Studio3")))
+                .andExpect(jsonPath("$.seriesAmount",is(2)));
+    }
+
+    @Test
+    void givenStudio_whenDeleteStudio_thenStatusOk() throws Exception {
+        mockMvc.perform(delete("/studios/{Id}",animeStudio2.getId()))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void givenNoStudio_whenDeleteStudio_thenStatusNotFound() throws Exception {
+        mockMvc.perform(delete("/studios/{Id}",-10))
+                .andExpect(status().isNotFound());
+    }
 }

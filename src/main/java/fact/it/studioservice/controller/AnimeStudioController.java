@@ -54,6 +54,9 @@ public class AnimeStudioController {
     public AnimeStudio updateStudio(@RequestBody AnimeStudioDTO animeStudioDTO) {
         AnimeStudio updatedStudio = new AnimeStudio(animeStudioDTO);
         AnimeStudio studio = animeStudioRepository.findAnimeStudioById(updatedStudio.getId());
+        if (studio == null){
+            return null;
+        }
         studio.setName(updatedStudio.getName());
         studio.setSeriesAmount(updatedStudio.getSeriesAmount());
         animeStudioRepository.save(studio);
