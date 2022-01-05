@@ -96,9 +96,8 @@ public class StudioControllerIntegrationTests {
     @Test
     void givenStudio_whenUpdateStudio_thenReturnJsonStudio() throws Exception {
         AnimeStudio changedAnimeStudio3 = animeStudio3;
-        changedAnimeStudio3.setId(animeStudio1.getId());
 
-        mockMvc.perform(put("/studios")
+        mockMvc.perform(put("/studios/{Id}",animeStudio1.getId())
                 .content(mapper.writeValueAsString(changedAnimeStudio3))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))

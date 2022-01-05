@@ -95,7 +95,7 @@ public class StudioControllerUnitTests {
         AnimeStudio changedAnimeStudio3 = animeStudio3;
         changedAnimeStudio3.setSeriesAmount(5);
         given(animeStudioRepository.findAnimeStudioById(animeStudio3.getId())).willReturn(changedAnimeStudio3);
-        mockMvc.perform(put("/studios")
+        mockMvc.perform(put("/studios/{Id}",animeStudio3.getId())
                 .content(mapper.writeValueAsString(changedAnimeStudio3))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
