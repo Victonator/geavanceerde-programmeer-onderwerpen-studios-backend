@@ -51,7 +51,7 @@ public class StudioControllerIntegrationTests {
 
     @Test
     void givenStudios_whenGetStudiosByName_thenReturnJsonStudios() throws Exception {
-        mockMvc.perform(get("/studios/{name}","Studio"))
+        mockMvc.perform(get("/studios/{name}","studio"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))

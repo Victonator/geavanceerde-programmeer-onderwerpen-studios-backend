@@ -35,7 +35,7 @@ public class AnimeStudioController {
 
     @GetMapping("/studios/{name}")
     public List<AnimeStudio> getStudiosByName(@PathVariable String name) {
-        return animeStudioRepository.findAnimeStudiosByNameContaining(name);
+        return animeStudioRepository.findAnimeStudiosByNameContainingIgnoreCase(name);
     }
 
     @GetMapping("/studios/seriesProduced/{amount}")

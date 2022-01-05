@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface AnimeStudioRepository extends JpaRepository<AnimeStudio, String> {
-    List<AnimeStudio> findAnimeStudiosByNameContaining(String name);
+    List<AnimeStudio> findAnimeStudiosByNameContainingIgnoreCase(String name);
     AnimeStudio findAnimeStudioById(int ID);
     List<AnimeStudio> findAnimeStudioBySeriesAmount(int amount);
 }

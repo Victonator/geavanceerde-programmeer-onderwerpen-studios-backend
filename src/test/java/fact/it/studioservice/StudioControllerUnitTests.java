@@ -54,8 +54,8 @@ public class StudioControllerUnitTests {
 
     @Test
     void givenStudios_whenGetStudiosByName_thenReturnJsonStudios() throws Exception {
-        given(animeStudioRepository.findAnimeStudiosByNameContaining("Studio")).willReturn(AnimeStudios);
-        mockMvc.perform(get("/studios/{name}","Studio"))
+        given(animeStudioRepository.findAnimeStudiosByNameContainingIgnoreCase("studio")).willReturn(AnimeStudios);
+        mockMvc.perform(get("/studios/{name}","studio"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
