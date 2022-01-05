@@ -50,10 +50,10 @@ public class AnimeStudioController {
         return animeStudio;
     }
 
-    @PutMapping("/studios")
-    public AnimeStudio updateStudio(@RequestBody AnimeStudioDTO animeStudioDTO) {
+    @PutMapping("/studios/{Id}")
+    public AnimeStudio updateStudio(@RequestBody AnimeStudioDTO animeStudioDTO, @PathVariable int Id) {
         AnimeStudio updatedStudio = new AnimeStudio(animeStudioDTO);
-        AnimeStudio studio = animeStudioRepository.findAnimeStudioById(updatedStudio.getId());
+        AnimeStudio studio = animeStudioRepository.findAnimeStudioById(Id);
         if (studio == null){
             return null;
         }
